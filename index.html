@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PixelCraft Studio — Онлайн редактор пиксель-арта и спрайтов | Alexcdraft Studios</title>
-  <meta name="description" content="Бесплатный онлайн пиксель-арт редактор. Создание игровых спрайтов, анимаций, палитры ретро-консолей, слои, экспорт в PNG и спрайт-листы для Unity, Godot и Unreal Engine. Alexcdraft Studios.">
-  <meta name="keywords" content="пиксель арт онлайн, pixel art maker, рисовалка пикселей, редактор спрайтов онлайн, pixel editor, пиксельная графика, спрайты для игр, alexcdraft studios">
+  <title>PixelCraft Studio — Профессиональный редактор спрайтов и пиксель-арта | Alexcdraft Studios</title>
+  <meta name="description" content="Бесплатная студия создания пиксель-арта и спрайтов для инди-игр. Полноэкранный холст, слои, сетка, палитры NES/GameBoy, инструменты заливки и экспорт PNG. Alexcdraft Studios.">
+  <meta name="keywords" content="пиксель арт онлайн, pixel editor, aseprite онлайн, рисовалка спрайтов, создание текстур для игр, пиксельная графика, alexcdraft studios">
   <meta name="author" content="Alexcdraft Studios">
   <meta name="robots" content="index, follow">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="PixelCraft Studio — Онлайн редактор пиксель-арта и спрайтов">
-  <meta property="og:description" content="Удобный веб-редактор пиксельной графики со слоями, пипеткой, заливкой и ретро-палитрами.">
+  <meta property="og:title" content="PixelCraft Studio — Профессиональный редактор спрайтов">
+  <meta property="og:description" content="Удобная рабочая станция для создания пиксель-арта и спрайт-анимаций.">
   <meta property="og:image" content="icon.png">
 
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "PixelCraft Studio",
-    "description": "Professional web-based pixel art editor for game developers and artists.",
+    "description": "Professional web pixel art workstation with layers and retro palettes.",
     "applicationCategory": "DesignApplication",
     "operatingSystem": "All",
     "author": {
@@ -37,41 +37,31 @@
 
   <style>
 :root, [data-theme="dark"] {
-  --bg-base: #0f111a;
-  --bg-surface: #171a26;
-  --bg-card: rgba(23, 26, 38, 0.8);
-  --bg-card-solid: #1c2030;
-  --bg-control: #252a3d;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-focus: #3b82f6;
-  --text-main: #f8fafc;
-  --text-dim: #94a3b8;
-  --text-muted: #64748b;
-  --accent: #3b82f6;
-  --accent-secondary: #06b6d4;
-  --accent-cta: #f97316;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-  --card-radius: 14px;
-  --panel-blur: blur(14px);
+  --app-bg: #12141c;
+  --titlebar-bg: #0c0e14;
+  --panel-bg: #181a24;
+  --panel-header: #1f2230;
+  --border-line: #2a2d40;
+  --border-accent: #3b82f6;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-gold: #f59e0b;
 }
 
 [data-theme="light"] {
-  --bg-base: #f1f5f9;
-  --bg-surface: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --bg-card-solid: #ffffff;
-  --bg-control: #e2e8f0;
-  --border: rgba(59, 130, 246, 0.15);
-  --border-focus: #2563eb;
-  --text-main: #0f172a;
-  --text-dim: #475569;
-  --text-muted: #94a3b8;
-  --accent: #2563eb;
-  --accent-secondary: #0891b2;
-  --accent-cta: #ea580c;
-  --accent-glow: rgba(37, 99, 235, 0.2);
-  --card-radius: 14px;
-  --panel-blur: blur(14px);
+  --app-bg: #e2e8f0;
+  --titlebar-bg: #cbd5e1;
+  --panel-bg: #ffffff;
+  --panel-header: #f1f5f9;
+  --border-line: #cbd5e1;
+  --border-accent: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-blue: #2563eb;
+  --accent-green: #059669;
+  --accent-gold: #d97706;
 }
 
 * {
@@ -81,425 +71,372 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg-base);
-  color: var(--text-main);
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--app-bg);
+  color: var(--text-primary);
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  transition: background 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+  user-select: none;
 }
 
-.studio-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg-card);
-  backdrop-filter: var(--panel-blur);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 24px;
-}
-
-.header-container {
-  max-width: 1560px;
-  margin: 0 auto;
+.studio-titlebar {
+  background: var(--titlebar-bg);
+  height: 42px;
+  border-bottom: 1px solid var(--border-line);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-}
-
-.brand-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.brand-icon-frame {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 14px var(--accent-glow);
+  padding: 0 16px;
   flex-shrink: 0;
 }
 
-.brand-icon-frame img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  display: block;
-}
-
-.brand-title-group h1 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-  line-height: 1.2;
-}
-
-.brand-title-group span {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  font-weight: 600;
-}
-
-.header-actions {
+.titlebar-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.btn-boosty-action {
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  cursor: pointer;
-  display: inline-flex;
+.studio-logo-badge {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+  gap: 8px;
   text-decoration: none;
-  transition: all 0.2s ease;
 }
 
-.btn-boosty-action:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+.studio-logo-badge img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
 }
 
-.pill-toggle-set {
+.app-title-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 0.5px;
+}
+
+.studio-menu-row {
   display: flex;
-  background: var(--bg-control);
-  padding: 3px;
-  border-radius: 9999px;
-  border: 1px solid var(--border);
-  gap: 2px;
+  gap: 4px;
 }
 
-.pill-btn {
+.menu-item-btn {
   background: transparent;
   border: none;
-  color: var(--text-dim);
-  padding: 5px 12px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-item-btn:hover {
+  background: var(--panel-header);
+  color: var(--text-primary);
+}
+
+.titlebar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-author-boosty {
+  background: #ea580c;
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.15s ease;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.4);
 }
 
-.pill-btn.active {
-  background: var(--bg-card-solid);
-  color: var(--text-main);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+.btn-author-boosty:hover {
+  background: #f97316;
 }
 
-.ad-banner-strip {
-  max-width: 1560px;
-  margin: 10px auto 0 auto;
-  padding: 0 24px;
-  width: 100%;
-}
-
-.ad-card-box {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 8px 12px;
+.theme-lang-controls {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 94px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-line);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.small-seg-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.small-seg-btn.active {
+  background: var(--accent-blue);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.workspace-workbench {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 50px 1fr 280px;
+  grid-template-rows: 1fr auto;
   overflow: hidden;
 }
 
-.ad-tag {
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 4px;
+.vertical-toolbox {
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border-line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  gap: 6px;
 }
 
-.pixel-workspace {
-  max-width: 1560px;
-  margin: 0 auto;
-  padding: 16px 24px 30px 24px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 80px 1fr 300px;
-  gap: 20px;
+.tool-square-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
 
-.tools-toolbar {
-  background: var(--bg-card);
-  backdrop-filter: var(--panel-blur);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 14px 10px;
+.tool-square-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tool-square-btn:hover {
+  background: var(--panel-header);
+  color: var(--text-primary);
+}
+
+.tool-square-btn.active {
+  background: var(--panel-header);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.viewport-canvas-area {
+  background: #181920;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.canvas-viewport-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.tool-icon-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: var(--bg-control);
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  cursor: pointer;
+.canvas-frame-matte {
+  padding: 12px;
+  background: repeating-conic-gradient(#222533 0% 25%, #181a24 0% 50%) 50% / 16px 16px;
+  border: 1px solid var(--border-line);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
+
+#pixel-canvas {
+  display: block;
+  cursor: crosshair;
+  image-rendering: pixelated;
+  background: transparent;
+}
+
+.canvas-floating-hud {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-line);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.canvas-floating-hud strong {
+  color: var(--text-primary);
+}
+
+.right-inspector-dock {
+  background: var(--panel-bg);
+  border-left: 1px solid var(--border-line);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  transition: all 0.15s ease;
+  overflow-y: auto;
 }
 
-.tool-icon-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.tool-icon-btn span {
-  font-size: 0.62rem;
-  font-weight: 700;
-}
-
-.tool-icon-btn:hover {
-  color: var(--text-main);
-  border-color: var(--accent);
-}
-
-.tool-icon-btn.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-  box-shadow: 0 4px 14px var(--accent-glow);
-}
-
-.canvas-center-panel {
-  background: var(--bg-card);
-  backdrop-filter: var(--panel-blur);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 20px;
+.inspector-section {
+  border-bottom: 1px solid var(--border-line);
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  min-height: 550px;
-  position: relative;
+  gap: 10px;
 }
 
-.canvas-top-bar {
-  width: 100%;
+.inspector-header {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.canvas-board-viewport {
-  background: repeating-conic-gradient(#1e2433 0% 25%, #151924 0% 50%) 50% / 20px 20px;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+.color-preview-large-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--titlebar-bg);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-line);
+}
+
+.color-current-tile {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #3b82f6;
+  border: 1px solid #fff;
+}
+
+.hex-display-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.palette-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.palette-dot-btn {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.05s ease;
+}
+
+.palette-dot-btn:hover {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.palette-dot-btn.active {
+  border: 2px solid #fff;
+  outline: 1px solid var(--accent-blue);
+}
+
+.select-compact {
+  background: var(--titlebar-bg);
+  border: 1px solid var(--border-line);
+  color: var(--text-primary);
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.btn-panel-action {
+  background: var(--titlebar-bg);
+  border: 1px solid var(--border-line);
+  color: var(--text-primary);
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#pixel-canvas {
-  cursor: crosshair;
-  image-rendering: pixelated;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.canvas-controls-bottom {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.btn-canvas-action {
-  background: var(--bg-control);
-  border: 1px solid var(--border);
-  color: var(--text-main);
-  border-radius: 9px;
-  padding: 8px 14px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   gap: 6px;
-  transition: all 0.15s ease;
 }
 
-.btn-canvas-action:hover {
-  background: var(--border);
-  border-color: var(--accent);
+.btn-panel-action:hover {
+  background: var(--panel-header);
+  border-color: var(--accent-blue);
 }
 
-.palette-sidebar {
-  background: var(--bg-card);
-  backdrop-filter: var(--panel-blur);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.sidebar-title-row {
-  font-size: 0.88rem;
-  font-weight: 800;
-  letter-spacing: -0.2px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-main);
-}
-
-.color-current-display {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--bg-control);
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-}
-
-.color-sample-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: #3b82f6;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-.color-hex-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.palette-swatches-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-}
-
-.swatch-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 7px;
-  border: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-.swatch-btn:hover {
-  transform: scale(1.15);
-}
-
-.swatch-btn.active {
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px var(--accent);
-}
-
-.btn-download-sprite {
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+.btn-export-primary {
+  background: var(--accent-green);
   color: #fff;
   border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  box-shadow: 0 4px 16px var(--accent-glow);
-  transition: all 0.2s ease;
+  gap: 6px;
+}
+
+.btn-export-primary:hover {
+  background: #059669;
+}
+
+.dock-ad-integrated {
   margin-top: auto;
+  padding: 10px;
+  background: var(--titlebar-bg);
+  border-top: 1px solid var(--border-line);
 }
 
-.btn-download-sprite:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-.ad-sidebar-slot {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 94px;
-  overflow: hidden;
-}
-
-.seo-features-section {
-  max-width: 1560px;
-  margin: 10px auto 40px auto;
-  padding: 0 24px;
-  width: 100%;
-}
-
-.seo-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-}
-
-.seo-card {
-  background: var(--bg-card);
-  backdrop-filter: var(--panel-blur);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.seo-card h2, .seo-card h3 {
-  font-size: 1.1rem;
+.dock-ad-tag {
+  font-size: 0.6rem;
   font-weight: 800;
-  color: var(--text-main);
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
-.seo-card p {
-  font-size: 0.84rem;
-  color: var(--text-dim);
-  line-height: 1.6;
+.app-statusbar {
+  grid-column: 1 / -1;
+  background: var(--titlebar-bg);
+  height: 26px;
+  border-top: 1px solid var(--border-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
 }
 
 .support-banner-overlay {
@@ -508,7 +445,6 @@ body {
   z-index: 99999;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
   display: none;
 }
@@ -529,14 +465,8 @@ body {
   z-index: 100000;
 }
 
-.waterfall-col-left {
-  left: 30px;
-}
-
-.waterfall-col-right {
-  right: 30px;
-  animation-delay: -10s;
-}
+.waterfall-col-left { left: 30px; }
+.waterfall-col-right { right: 30px; animation-delay: -10s; }
 
 @keyframes scrollDown {
   0% { transform: translateY(0); }
@@ -544,9 +474,9 @@ body {
 }
 
 .waterfall-ad-card {
-  background: var(--bg-card-solid);
+  background: #111420;
   border: 1px solid rgba(249, 115, 22, 0.5);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 10px;
   box-shadow: 0 14px 40px rgba(0,0,0,0.85);
   width: 320px;
@@ -566,500 +496,268 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100001;
-  background: var(--bg-card-solid);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  max-width: 480px;
+  background: #181a24;
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 460px;
   width: calc(100% - 40px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-  pointer-events: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .support-modal-header {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .support-modal-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
   display: block;
 }
 
 .support-modal-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: -0.3px;
-  line-height: 1.2;
+  color: #fff;
 }
 
 .support-modal-sub {
-  font-size: 0.76rem;
-  color: var(--text-dim);
+  font-size: 0.72rem;
+  color: #94a3b8;
   font-weight: 600;
 }
 
 .support-modal-text {
-  font-size: 0.84rem;
-  color: var(--text-main);
-  line-height: 1.6;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
 }
 
 .btn-waterfall-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: var(--bg-control);
-  border: 1px solid var(--border);
-  color: var(--text-main);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: 1px solid var(--border-line);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  line-height: 1;
-  transition: all 0.15s ease;
 }
 
-.btn-waterfall-close:hover {
-  background: #ef4444;
+.btn-boosty-action {
+  background: #ea580c;
   color: #fff;
-  border-color: #ef4444;
-  transform: scale(1.08);
-}
-
-.footer-bar {
-  border-top: 1px solid var(--border);
-  background: var(--bg-card);
-  padding: 16px 24px;
-  margin-top: auto;
-}
-
-.footer-inner {
-  max-width: 1560px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  color: var(--text-dim);
-}
-
-.footer-signature strong {
-  color: var(--text-main);
-}
-
-@media (max-width: 1200px) {
-  .waterfall-col-left, .waterfall-col-right {
-    display: none;
-  }
-}
-
-@media (max-width: 980px) {
-  .pixel-workspace {
-    grid-template-columns: 1fr;
-  }
-  .seo-grid {
-    grid-template-columns: 1fr;
-  }
-  .tools-toolbar {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
-  .retro-pixel-nav {
-  background: #111420;
-  border-bottom: 4px solid #000;
-  box-shadow: 0 4px 0 #252d47;
-  padding: 8px 24px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.pixel-nav-inner {
-  max-width: 1560px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.pixel-brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
   text-decoration: none;
 }
-
-.pixel-frame-border {
-  width: 44px;
-  height: 44px;
-  background: #000;
-  padding: 4px;
-  border: 2px solid #3b82f6;
-  box-shadow: 3px 3px 0 #000;
-}
-
-.pixel-title-stack {
-  display: flex;
-  flex-direction: column;
-}
-
-.pixel-headline {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #38bdf8;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 0 #000;
-}
-
-.pixel-caption {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #fbbf24;
-}
-
-.retro-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.retro-arcade-btn {
-  background: #f97316;
-  color: #000;
-  border: 3px solid #000;
-  box-shadow: 3px 3px 0 #000;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76rem;
-  font-weight: 900;
-  padding: 6px 14px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: transform 0.05s ease, box-shadow 0.05s ease;
-}
-
-.retro-arcade-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 #000;
-}
-
-.retro-toggle-cluster {
-  display: flex;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #000;
-  background: #1c2235;
-}
-
-.retro-chip-btn {
-  background: transparent;
-  border: none;
-  color: #94a3b8;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.retro-chip-btn.active {
-  background: #3b82f6;
-  color: #fff;
-}
-
-.tool-icon-btn {
-  border: 3px solid #000 !important;
-  box-shadow: 3px 3px 0 #000 !important;
-  border-radius: 0 !important;
-}
-
-.tool-icon-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 #000 !important;
-}
-
-.tool-icon-btn.active {
-  background: #3b82f6 !important;
-  box-shadow: inset 3px 3px 0 #000 !important;
-}
-
-.btn-download-sprite {
-  border: 3px solid #000 !important;
-  box-shadow: 4px 4px 0 #000 !important;
-  border-radius: 0 !important;
-  background: #10b981 !important;
-  color: #000 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  font-weight: 900 !important;
-}
-
-.btn-download-sprite:hover {
-  background: #34d399 !important;
-}
-
-.btn-download-sprite:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #000 !important;
-}
-
-.btn-canvas-action {
-  border: 2px solid #000 !important;
-  box-shadow: 2px 2px 0 #000 !important;
-  border-radius: 0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-}
-</style>
+  </style>
 </head>
 <body>
 
-    <header class="retro-pixel-nav">
-    <div class="pixel-nav-inner">
-      <a href="#" class="pixel-brand-logo">
-        <div class="pixel-frame-border">
-          <img src="icon.png" width="36" height="36" alt="PixelCraft Studio">
-        </div>
-        <div class="pixel-title-stack">
-          <div class="pixel-headline">PIXELCRAFT</div>
-          <div class="pixel-caption">16-BIT SPRITE WORKSHOP</div>
-        </div>
+  <header class="studio-titlebar">
+    <div class="titlebar-left">
+      <a href="#" class="studio-logo-badge">
+        <img src="icon.png" width="24" height="24" alt="PixelCraft">
+        <span class="app-title-text">PIXELCRAFT STUDIO</span>
       </a>
 
-      <div class="retro-nav-actions">
-        <button onclick="openBoostySupport()" class="retro-arcade-btn">
-          <span class="btn-pixel-coin">🪙</span>
-          <span data-i18n="support_btn">SUPPORT BOOSTY</span>
-        </button>
+      <nav class="studio-menu-row">
+        <button class="menu-item-btn" id="btn-file-new" data-i18n="menu_new">Новый</button>
+        <button class="menu-item-btn" id="btn-file-clear" data-i18n="menu_clear">Очистить</button>
+        <button class="menu-item-btn" id="btn-file-undo" data-i18n="menu_undo">Отмена (Ctrl+Z)</button>
+      </nav>
+    </div>
 
-        <div class="retro-toggle-cluster">
-          <button class="retro-chip-btn active" id="btn-theme-dark">NIGHT</button>
-          <button class="retro-chip-btn" id="btn-theme-light">DAY</button>
-        </div>
+    <div class="titlebar-right">
+      <button onclick="openBoostySupport()" class="btn-author-boosty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span data-i18n="support_btn">Поддержать автора</span>
+      </button>
 
-        <div class="retro-toggle-cluster">
-          <button class="retro-chip-btn active" id="btn-lang-ru">RU</button>
-          <button class="retro-chip-btn" id="btn-lang-en">EN</button>
-        </div>
+      <div class="theme-lang-controls">
+        <button class="small-seg-btn active" id="btn-theme-dark">Dark</button>
+        <button class="small-seg-btn" id="btn-theme-light">Light</button>
+      </div>
+
+      <div class="theme-lang-controls">
+        <button class="small-seg-btn active" id="btn-lang-ru">RU</button>
+        <button class="small-seg-btn" id="btn-lang-en">EN</button>
       </div>
     </div>
   </header>
 
-  <div class="ad-banner-strip">
-    <div class="ad-card-box">
-      <span class="ad-tag" data-i18n="ad_tag">СПОНСОРСКАЯ РЕКЛАМА</span>
-      <iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy" style="border:0;width:100%;height:90px;display:block;"></iframe>
-    </div>
-  </div>
-
-  <main class="pixel-workspace">
+  <main class="workspace-workbench">
     
-    <aside class="tools-toolbar">
-      <button class="tool-icon-btn active" id="tool-pencil" title="Карандаш">
+    <aside class="vertical-toolbox">
+      <button class="tool-square-btn active" id="tool-pencil" title="Карандаш (B)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
-        <span data-i18n="tool_pencil">Кисть</span>
       </button>
-      <button class="tool-icon-btn" id="tool-eraser" title="Ластик">
+      <button class="tool-square-btn" id="tool-eraser" title="Ластик (E)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L18 15"/><path d="M18 15L7 4"/></svg>
-        <span data-i18n="tool_eraser">Ластик</span>
       </button>
-      <button class="tool-icon-btn" id="tool-bucket" title="Заливка">
+      <button class="tool-square-btn" id="tool-bucket" title="Заливка (G)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11L12 4 4 12l7 7 7-7z"/><path d="M5 2l5 5"/><path d="M2 12l5 5"/></svg>
-        <span data-i18n="tool_bucket">Заливка</span>
       </button>
-      <button class="tool-icon-btn" id="tool-picker" title="Пипетка">
+      <button class="tool-square-btn" id="tool-picker" title="Пипетка (I)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 3-9 9-4 1 1-4 9-9z"/><path d="M19 9l2-2-3-3-2 2"/></svg>
-        <span data-i18n="tool_picker">Пипетка</span>
       </button>
     </aside>
 
-    <section class="canvas-center-panel">
-      <div class="canvas-top-bar">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-size:0.8rem;font-weight:700;color:var(--text-dim);" data-i18n="grid_size_label">Размер холста:</span>
-          <select id="select-grid-size" style="background:var(--bg-control);color:var(--text-main);border:1px solid var(--border);border-radius:8px;padding:4px 8px;font-weight:700;outline:none;">
-            <option value="16">16 × 16 px (Иконки)</option>
-            <option value="24">24 × 24 px (Инвентарь)</option>
-            <option value="32" selected>32 × 32 px (Спрайты)</option>
-            <option value="48">48 × 48 px (Персонажи)</option>
-          </select>
+    <section class="viewport-canvas-area">
+      <div class="canvas-viewport-panel">
+        <div class="canvas-frame-matte">
+          <canvas id="pixel-canvas" width="480" height="480"></canvas>
         </div>
 
-        <button class="btn-canvas-action" id="btn-toggle-grid" data-i18n="btn_grid">Сетка: Вкл</button>
-      </div>
-
-      <div class="canvas-board-viewport">
-        <canvas id="pixel-canvas" width="480" height="480"></canvas>
-      </div>
-
-      <div class="canvas-controls-bottom">
-        <button class="btn-canvas-action" id="btn-clear-canvas" data-i18n="btn_clear">Очистить холст</button>
-        <button class="btn-canvas-action" id="btn-undo-action" data-i18n="btn_undo">Отмена (Undo)</button>
+        <div class="canvas-floating-hud">
+          <span data-i18n="canvas_size_label">Размер:</span> <strong id="hud-dim">32 × 32 px</strong>
+          <span>•</span>
+          <span data-i18n="cursor_pos_label">Курсор:</span> <strong id="hud-coords">X: 0, Y: 0</strong>
+          <span>•</span>
+          <button id="btn-toggle-grid-opt" style="background:none;border:none;color:var(--accent-blue);font-family:inherit;font-size:inherit;font-weight:700;cursor:pointer;" data-i18n="grid_toggle">Сетка [Вкл]</button>
+        </div>
       </div>
     </section>
 
-    <aside class="palette-sidebar">
-      <div class="sidebar-title-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--accent);"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 10 10 0 1 0-10-10"/></svg>
-        <span data-i18n="palette_title">Палитра и Цвет</span>
-      </div>
-
-      <div class="color-current-display">
-        <div class="color-sample-box" id="active-color-swatch"></div>
-        <div>
-          <div style="font-size:0.7rem;color:var(--text-dim);" data-i18n="active_color_label">Активный цвет</div>
-          <div class="color-hex-tag" id="active-color-hex">#3B82F6</div>
+    <aside class="right-inspector-dock">
+      
+      <div class="inspector-section">
+        <div class="inspector-header">
+          <span data-i18n="color_header">Активный цвет</span>
+          <input type="color" id="native-color-picker" value="#3b82f6" style="cursor:pointer;border:none;background:none;width:24px;height:24px;">
         </div>
-        <input type="color" id="custom-color-input" value="#3b82f6" style="margin-left:auto;cursor:pointer;background:none;border:none;width:30px;height:30px;">
+
+        <div class="color-preview-large-strip">
+          <div class="color-current-tile" id="active-tile-box"></div>
+          <div>
+            <div class="hex-display-val" id="active-hex-val">#3B82F6</div>
+            <div style="font-size:0.65rem;color:var(--text-secondary);" data-i18n="rgb_hint">RGBA (255)</div>
+          </div>
+        </div>
       </div>
 
-      <div class="palette-swatches-grid" id="palette-container"></div>
-
-      <button class="btn-download-sprite" id="btn-export-png">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        <span data-i18n="btn_download">Экспорт PNG (Спрайт)</span>
-      </button>
-
-      <div class="ad-sidebar-slot">
-        <iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy" style="border:0;width:100%;height:90px;display:block;"></iframe>
+      <div class="inspector-section">
+        <div class="inspector-header">
+          <span data-i18n="palette_header">Палитра ретро-игр</span>
+          <select id="select-preset-palette" class="select-compact" style="padding:2px 6px;font-size:0.7rem;">
+            <option value="modern">Modern RGB</option>
+            <option value="gameboy">GameBoy Classic</option>
+            <option value="c64">Commodore 64</option>
+            <option value="pico8">PICO-8</option>
+          </select>
+        </div>
+        <div class="palette-grid-compact" id="palette-swatches-area"></div>
       </div>
+
+      <div class="inspector-section">
+        <div class="inspector-header">
+          <span data-i18n="res_header">Разрешение спрайта</span>
+        </div>
+        <select id="select-canvas-resolution" class="select-compact">
+          <option value="16">16 × 16 (Мини-иконки)</option>
+          <option value="24">24 × 24 (Инвентарь RPG)</option>
+          <option value="32" selected>32 × 32 (Игровой спрайт)</option>
+          <option value="48">48 × 48 (Тайл уровня)</option>
+          <option value="64">64 × 64 (Персонаж / Босс)</option>
+        </select>
+      </div>
+
+      <div class="inspector-section">
+        <button class="btn-export-primary" id="btn-export-sprite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span data-i18n="export_png_btn">Экспорт спрайта (.PNG)</span>
+        </button>
+      </div>
+
+      <div class="dock-ad-integrated">
+        <div class="dock-ad-tag" data-i18n="ad_tag">Спонсорская реклама</div>
+        <iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy" style="border:0;width:100%;height:90px;display:block;"></iframe>
+      </div>
+
     </aside>
+
+    <footer class="app-statusbar">
+      <div>PixelCraft Studio • Alexcdraft Studios</div>
+      <div>IndexedDB: Local Cache Active</div>
+    </footer>
 
   </main>
 
-  <div class="ad-banner-strip">
-    <div class="ad-card-box">
-      <span class="ad-tag" data-i18n="ad_tag">СПОНСОРСКАЯ РЕКЛАМА</span>
-      <iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy" style="border:0;width:100%;height:90px;display:block;"></iframe>
-    </div>
-  </div>
-
-  <section class="seo-features-section">
-    <div class="seo-grid">
-      <article class="seo-card">
-        <h2>
-          <span data-i18n="seo_title">Профессиональный редактор пиксель-арта онлайн</span>
-        </h2>
-        <p data-i18n="seo_text">
-          PixelCraft Studio создан для инди-разработчиков и 2D художников. Рисуйте спрайты персонажей, предметы инвентаря, тайлы уровней для Unity, Unreal Engine, Godot и GameMaker. Мгновенный экспорт в PNG без потери четкости пикселей.
-        </p>
-      </article>
-
-      <article class="seo-card">
-        <h3>
-          <span data-i18n="author_box_title">Alexcdraft Studios</span>
-        </h3>
-        <p data-i18n="author_box_desc">
-          Разрабатываем полезные онлайн-инструменты для геймдева и моды в Steam. Поддержите проект на Boosty!
-        </p>
-        <button onclick="openBoostySupport()" class="btn-boosty-action" style="align-self:flex-start;margin-top:auto;">
-          <span data-i18n="support_btn">Поддержать на Boosty</span>
-        </button>
-      </article>
-    </div>
-  </section>
-
   <div class="support-banner-overlay" id="support-waterfall-overlay">
     <div class="waterfall-col-left">
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
     </div>
     <div class="waterfall-col-right">
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
-      <div class="waterfall-ad-card"><iframe data-aa="2455016" src="//acceptable.a-ads.com/2455016/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
+      <div class="waterfall-ad-card"><iframe data-aa="2455017" src="//acceptable.a-ads.com/2455017/?size=Adaptive" loading="lazy"></iframe></div>
     </div>
     <div class="support-modal-center">
       <button class="btn-waterfall-close" onclick="closeBoostySupport()" aria-label="Закрыть">&times;</button>
       <div class="support-modal-header">
-        <img src="icon.png" class="support-modal-icon" width="48" height="48" alt="Alexcdraft Studios">
+        <img src="icon.png" class="support-modal-icon" width="42" height="42" alt="Alexcdraft Studios">
         <div>
           <h3 class="support-modal-title">Alexcdraft Studios</h3>
-          <span class="support-modal-sub">Steam моды • Игры • Сайты</span>
+          <span class="support-modal-sub">Gamedev инструменты • Моды • Игры</span>
         </div>
       </div>
-      <p class="support-modal-text">Привет! Я разработчик инди-игр, Steam-модификаций и веб-приложений. Поддержка на Boosty помогает развивать инструменты для геймдева!</p>
+      <p class="support-modal-text">Привет! Я создаю инди-игры, моды для Steam Workshop и удобные инструменты для разработчиков. Поддержка на Boosty помогает развивать проекты быстрее!</p>
       <a href="https://boosty.to/vostguy/donate" target="_blank" rel="noopener noreferrer" class="btn-boosty-action">Поддержать на Boosty</a>
     </div>
   </div>
-
-  <footer class="footer-bar">
-    <div class="footer-inner">
-      <span>PixelCraft Studio • Онлайн рисовалка пиксель-арта</span>
-      <div class="footer-signature"><span>Создано</span> <strong>Alexcdraft Studios</strong></div>
-    </div>
-  </footer>
 
   <script>
 (function() {
   const i18n = {
     ru: {
-      support_btn: "Поддержать Boosty",
-      theme_dark: "Тёмная",
-      theme_light: "Светлая",
-      ad_tag: "СПОНСОРСКАЯ РЕКЛАМА",
-      tool_pencil: "Кисть",
-      tool_eraser: "Ластик",
-      tool_bucket: "Заливка",
-      tool_picker: "Пипетка",
-      grid_size_label: "Размер холста:",
-      btn_grid: "Сетка: Вкл",
-      btn_clear: "Очистить холст",
-      btn_undo: "Отмена (Undo)",
-      palette_title: "Палитра и Цвет",
-      active_color_label: "Активный цвет",
-      btn_download: "Экспорт PNG (Спрайт)",
-      seo_title: "Профессиональный редактор пиксель-арта онлайн",
-      seo_text: "PixelCraft Studio создан для инди-разработчиков и 2D художников. Рисуйте спрайты персонажей, предметы инвентаря, тайлы уровней для Unity, Unreal Engine, Godot и GameMaker. Мгновенный экспорт в PNG без потери четкости пикселей.",
-      author_box_title: "Alexcdraft Studios",
-      author_box_desc: "Разрабатываем полезные онлайн-инструменты для геймдева и моды в Steam. Поддержите проект на Boosty!"
+      support_btn: "Поддержать автора",
+      menu_new: "Новый",
+      menu_clear: "Очистить",
+      menu_undo: "Отмена (Ctrl+Z)",
+      canvas_size_label: "Размер:",
+      cursor_pos_label: "Курсор:",
+      grid_toggle: "Сетка [Вкл]",
+      color_header: "Активный цвет",
+      rgb_hint: "RGBA (255)",
+      palette_header: "Палитра ретро-игр",
+      res_header: "Разрешение спрайта",
+      export_png_btn: "Экспорт спрайта (.PNG)",
+      ad_tag: "Спонсорская реклама"
     },
     en: {
-      support_btn: "Support Boosty",
-      theme_dark: "Dark",
-      theme_light: "Light",
-      ad_tag: "SPONSORED ADVERTISEMENT",
-      tool_pencil: "Pencil",
-      tool_eraser: "Eraser",
-      tool_bucket: "Bucket",
-      tool_picker: "Eyedropper",
-      grid_size_label: "Canvas Size:",
-      btn_grid: "Grid: On",
-      btn_clear: "Clear Canvas",
-      btn_undo: "Undo",
-      palette_title: "Color Palette",
-      active_color_label: "Active Color",
-      btn_download: "Export PNG (Sprite)",
-      seo_title: "Professional Online Pixel Art Editor",
-      seo_text: "PixelCraft Studio is built for game developers and 2D artists. Create characters, game inventory items, and level tiles for Unity, Unreal Engine, Godot, and GameMaker. Clean crisp PNG export.",
-      author_box_title: "Alexcdraft Studios",
-      author_box_desc: "We build gamedev creative utilities and Steam Workshop mods. Back our journey on Boosty!"
+      support_btn: "Support Author",
+      menu_new: "New",
+      menu_clear: "Clear",
+      menu_undo: "Undo (Ctrl+Z)",
+      canvas_size_label: "Size:",
+      cursor_pos_label: "Cursor:",
+      grid_toggle: "Grid [On]",
+      color_header: "Active Color",
+      rgb_hint: "RGBA (255)",
+      palette_header: "Retro Palettes",
+      res_header: "Sprite Resolution",
+      export_png_btn: "Export Sprite (.PNG)",
+      ad_tag: "Sponsored Ad"
     }
   };
 
@@ -1071,16 +769,31 @@ body {
   let isDrawing = false;
   let undoStack = [];
 
-  const defaultPalette = [
-    '#000000', '#1f2937', '#4b5563', '#9ca3af', '#e5e7eb', '#ffffff',
-    '#ef4444', '#f97316', '#f59e0b', '#84cc16', '#10b981', '#06b6d4',
-    '#3b82f6', '#6366f1', '#8b5cf6', '#d946ef', '#ec4899', '#78350f',
-    '#92400e', '#b45309', '#047857', '#0e7490', '#1d4ed8', '#4c1d95'
-  ];
+  const PALETTES = {
+    modern: [
+      '#000000', '#1f2937', '#4b5563', '#9ca3af', '#e5e7eb', '#ffffff',
+      '#ef4444', '#f97316', '#f59e0b', '#84cc16', '#10b981', '#06b6d4',
+      '#3b82f6', '#6366f1', '#8b5cf6', '#d946ef', '#ec4899', '#78350f',
+      '#92400e', '#b45309', '#047857', '#0e7490', '#1d4ed8', '#4c1d95'
+    ],
+    gameboy: [
+      '#0f380f', '#306230', '#8bac0f', '#9bbc0f',
+      '#1b401b', '#3d6e3d', '#73940c', '#85a40d'
+    ],
+    c64: [
+      '#000000', '#ffffff', '#880000', '#aaffee', '#cc44cc', '#00cc55',
+      '#0000aa', '#eeee77', '#dd8855', '#664400', '#ff7777', '#333333'
+    ],
+    pico8: [
+      '#000000', '#1D2B53', '#7E2553', '#008751', '#AB5236', '#5F574F',
+      '#C2C3C7', '#FFF1E8', '#FF004D', '#FFA300', '#FFEC27', '#00E436',
+      '#29ADFF', '#83769C', '#FF77A8', '#FFCCAA'
+    ]
+  };
 
   let gridData = [];
 
-  function initGridData() {
+  function initGrid() {
     gridData = [];
     for (let y = 0; y < gridSize; y++) {
       gridData[y] = [];
@@ -1089,48 +802,48 @@ body {
       }
     }
     undoStack = [];
+    document.getElementById('hud-dim').textContent = `${gridSize} × ${gridSize} px`;
   }
 
-  function saveUndoState() {
-    if (undoStack.length > 20) undoStack.shift();
-    const copy = gridData.map(row => [...row]);
-    undoStack.push(copy);
+  function saveUndo() {
+    if (undoStack.length > 25) undoStack.shift();
+    undoStack.push(gridData.map(row => [...row]));
   }
 
   const canvas = document.getElementById('pixel-canvas');
   const ctx = canvas.getContext('2d');
 
-  function renderCanvas() {
+  function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const pixelSize = canvas.width / gridSize;
+    const cellSize = canvas.width / gridSize;
 
     for (let y = 0; y < gridSize; y++) {
       for (let x = 0; x < gridSize; x++) {
         if (gridData[y] && gridData[y][x]) {
           ctx.fillStyle = gridData[y][x];
-          ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+          ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
         }
       }
     }
 
     if (showGrid) {
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.09)';
       ctx.lineWidth = 1;
       for (let i = 0; i <= gridSize; i++) {
         ctx.beginPath();
-        ctx.moveTo(i * pixelSize, 0);
-        ctx.lineTo(i * pixelSize, canvas.height);
+        ctx.moveTo(i * cellSize, 0);
+        ctx.lineTo(i * cellSize, canvas.height);
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.moveTo(0, i * pixelSize);
-        ctx.lineTo(canvas.width, i * pixelSize);
+        ctx.moveTo(0, i * cellSize);
+        ctx.lineTo(canvas.width, i * cellSize);
         ctx.stroke();
       }
     }
   }
 
-  function getPixelCoords(e) {
+  function getCoords(e) {
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
@@ -1139,52 +852,58 @@ body {
     return { x: Math.max(0, Math.min(gridSize - 1, x)), y: Math.max(0, Math.min(gridSize - 1, y)) };
   }
 
-  function floodFill(startX, startY, targetColor, fillColor) {
-    if (targetColor === fillColor) return;
-    const queue = [[startX, startY]];
-    while (queue.length > 0) {
-      const [x, y] = queue.pop();
-      if (x < 0 || x >= gridSize || y < 0 || y >= gridSize) continue;
-      if (gridData[y][x] === targetColor) {
-        gridData[y][x] = fillColor;
-        queue.push([x + 1, y]);
-        queue.push([x - 1, y]);
-        queue.push([x, y + 1]);
-        queue.push([x, y - 1]);
-      }
-    }
-  }
-
-  function handlePixelClick(coords) {
+  function applyTool(coords) {
     const { x, y } = coords;
     if (activeTool === 'pencil') {
       gridData[y][x] = activeColor;
     } else if (activeTool === 'eraser') {
       gridData[y][x] = null;
     } else if (activeTool === 'bucket') {
-      const target = gridData[y][x];
-      floodFill(x, y, target, activeColor);
+      floodFill(x, y, gridData[y][x], activeColor);
     } else if (activeTool === 'picker') {
-      if (gridData[y][x]) {
-        setColor(gridData[y][x]);
+      if (gridData[y][x]) selectColor(gridData[y][x]);
+    }
+    render();
+  }
+
+  function floodFill(x, y, target, replacement) {
+    if (target === replacement) return;
+    const queue = [[x, y]];
+    while (queue.length > 0) {
+      const [cx, cy] = queue.pop();
+      if (cx < 0 || cx >= gridSize || cy < 0 || cy >= gridSize) continue;
+      if (gridData[cy][cx] === target) {
+        gridData[cy][cx] = replacement;
+        queue.push([cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]);
       }
     }
-    renderCanvas();
   }
 
-  function setColor(hex) {
+  function selectColor(hex) {
     activeColor = hex;
-    document.getElementById('active-color-swatch').style.background = hex;
-    document.getElementById('active-color-hex').textContent = hex.toUpperCase();
-    document.getElementById('custom-color-input').value = hex;
+    document.getElementById('active-tile-box').style.background = hex;
+    document.getElementById('active-hex-val').textContent = hex.toUpperCase();
+    document.getElementById('native-color-picker').value = hex;
   }
 
-  function exportPNG() {
-    const expCanvas = document.createElement('canvas');
-    expCanvas.width = gridSize;
-    expCanvas.height = gridSize;
-    const expCtx = expCanvas.getContext('2d');
+  function renderPalette(name = 'modern') {
+    const area = document.getElementById('palette-swatches-area');
+    area.innerHTML = '';
+    const colors = PALETTES[name] || PALETTES.modern;
+    colors.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'palette-dot-btn';
+      btn.style.background = c;
+      btn.addEventListener('click', () => selectColor(c));
+      area.appendChild(btn);
+    });
+  }
 
+  function exportImage() {
+    const exp = document.createElement('canvas');
+    exp.width = gridSize;
+    exp.height = gridSize;
+    const expCtx = exp.getContext('2d');
     for (let y = 0; y < gridSize; y++) {
       for (let x = 0; x < gridSize; x++) {
         if (gridData[y][x]) {
@@ -1193,87 +912,84 @@ body {
         }
       }
     }
-
     const a = document.createElement('a');
-    a.download = `pixelcraft_${gridSize}x${gridSize}.png`;
-    a.href = expCanvas.toDataURL('image/png');
+    a.download = `pixelcraft_sprite_${gridSize}x${gridSize}.png`;
+    a.href = exp.toDataURL('image/png');
     a.click();
   }
 
-  function initPalette() {
-    const container = document.getElementById('palette-container');
-    container.innerHTML = '';
-    defaultPalette.forEach(color => {
-      const btn = document.createElement('button');
-      btn.className = 'swatch-btn';
-      btn.style.background = color;
-      btn.addEventListener('click', () => setColor(color));
-      container.appendChild(btn);
-    });
-  }
-
   function init() {
-    initGridData();
-    initPalette();
-    renderCanvas();
+    initGrid();
+    renderPalette('modern');
+    render();
 
     canvas.addEventListener('mousedown', (e) => {
       isDrawing = true;
-      saveUndoState();
-      handlePixelClick(getPixelCoords(e));
+      saveUndo();
+      applyTool(getCoords(e));
     });
 
-    window.addEventListener('mouseup', () => {
-      isDrawing = false;
-    });
+    window.addEventListener('mouseup', () => { isDrawing = false; });
 
     canvas.addEventListener('mousemove', (e) => {
+      const c = getCoords(e);
+      document.getElementById('hud-coords').textContent = `X: ${c.x}, Y: ${c.y}`;
       if (isDrawing && (activeTool === 'pencil' || activeTool === 'eraser')) {
-        handlePixelClick(getPixelCoords(e));
+        applyTool(c);
       }
     });
 
-    const tools = ['pencil', 'eraser', 'bucket', 'picker'];
-    tools.forEach(t => {
-      document.getElementById(`tool-${t}`).addEventListener('click', () => {
-        tools.forEach(other => document.getElementById(`tool-${other}`).classList.remove('active'));
-        document.getElementById(`tool-${t}`).classList.add('active');
-        activeTool = t;
+    ['pencil', 'eraser', 'bucket', 'picker'].forEach(toolId => {
+      document.getElementById(`tool-${toolId}`).addEventListener('click', () => {
+        document.querySelectorAll('.tool-square-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(`tool-${toolId}`).classList.add('active');
+        activeTool = toolId;
       });
     });
 
-    document.getElementById('select-grid-size').addEventListener('change', (e) => {
+    document.getElementById('select-canvas-resolution').addEventListener('change', (e) => {
       gridSize = parseInt(e.target.value, 10);
-      initGridData();
-      renderCanvas();
+      initGrid();
+      render();
     });
 
-    document.getElementById('btn-toggle-grid').addEventListener('click', () => {
+    document.getElementById('select-preset-palette').addEventListener('change', (e) => {
+      renderPalette(e.target.value);
+    });
+
+    document.getElementById('btn-toggle-grid-opt').addEventListener('click', () => {
       showGrid = !showGrid;
-      document.getElementById('btn-toggle-grid').textContent = showGrid ? 
-        (currentLang === 'ru' ? 'Сетка: Вкл' : 'Grid: On') : 
-        (currentLang === 'ru' ? 'Сетка: Выкл' : 'Grid: Off');
-      renderCanvas();
+      document.getElementById('btn-toggle-grid-opt').textContent = showGrid ?
+        (currentLang === 'ru' ? 'Сетка [Вкл]' : 'Grid [On]') :
+        (currentLang === 'ru' ? 'Сетка [Выкл]' : 'Grid [Off]');
+      render();
     });
 
-    document.getElementById('btn-clear-canvas').addEventListener('click', () => {
-      saveUndoState();
-      initGridData();
-      renderCanvas();
+    document.getElementById('btn-file-clear').addEventListener('click', () => {
+      saveUndo();
+      initGrid();
+      render();
     });
 
-    document.getElementById('btn-undo-action').addEventListener('click', () => {
+    document.getElementById('btn-file-undo').addEventListener('click', () => {
       if (undoStack.length > 0) {
         gridData = undoStack.pop();
-        renderCanvas();
+        render();
       }
     });
 
-    document.getElementById('custom-color-input').addEventListener('input', (e) => {
-      setColor(e.target.value);
+    document.getElementById('btn-file-new').addEventListener('click', () => {
+      if (confirm(currentLang === 'ru' ? 'Создать новый холст?' : 'Create new canvas?')) {
+        initGrid();
+        render();
+      }
     });
 
-    document.getElementById('btn-export-png').addEventListener('click', exportPNG);
+    document.getElementById('native-color-picker').addEventListener('input', (e) => {
+      selectColor(e.target.value);
+    });
+
+    document.getElementById('btn-export-sprite').addEventListener('click', exportImage);
 
     document.getElementById('btn-theme-dark').addEventListener('click', () => {
       document.documentElement.setAttribute('data-theme', 'dark');
