@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pixelcraft-studio.vercel.app/sitemap.xml
